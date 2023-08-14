@@ -17,25 +17,25 @@ endfunction
 
 if !get(g:, 'tmux_navigator_no_mappings', 0)
   noremap <silent> <c-h> :<C-U>TmuxNavigateLeft<cr>
-  noremap <silent> <c-j> :<C-U>TmuxNavigateDown<cr>
-  noremap <silent> <c-k> :<C-U>TmuxNavigateUp<cr>
-  noremap <silent> <c-l> :<C-U>TmuxNavigateRight<cr>
+  noremap <silent> <c-n> :<C-U>TmuxNavigateDown<cr>
+  noremap <silent> <c-r> :<C-U>TmuxNavigateUp<cr>
+  noremap <silent> <c-t> :<C-U>TmuxNavigateRight<cr>
   noremap <silent> <c-\> :<C-U>TmuxNavigatePrevious<cr>
 endif
 
 if empty($TMUX)
   command! TmuxNavigateLeft call s:VimNavigate('h')
-  command! TmuxNavigateDown call s:VimNavigate('j')
-  command! TmuxNavigateUp call s:VimNavigate('k')
-  command! TmuxNavigateRight call s:VimNavigate('l')
+  command! TmuxNavigateDown call s:VimNavigate('n')
+  command! TmuxNavigateUp call s:VimNavigate('r')
+  command! TmuxNavigateRight call s:VimNavigate('t')
   command! TmuxNavigatePrevious call s:VimNavigate('p')
   finish
 endif
 
 command! TmuxNavigateLeft call s:TmuxAwareNavigate('h')
-command! TmuxNavigateDown call s:TmuxAwareNavigate('j')
-command! TmuxNavigateUp call s:TmuxAwareNavigate('k')
-command! TmuxNavigateRight call s:TmuxAwareNavigate('l')
+command! TmuxNavigateDown call s:TmuxAwareNavigate('n')
+command! TmuxNavigateUp call s:TmuxAwareNavigate('r')
+command! TmuxNavigateRight call s:TmuxAwareNavigate('t')
 command! TmuxNavigatePrevious call s:TmuxAwareNavigate('p')
 
 if !exists("g:tmux_navigator_save_on_switch")
@@ -54,7 +54,7 @@ if !exists("g:tmux_navigator_no_wrap")
   let g:tmux_navigator_no_wrap = 0
 endif
 
-let s:pane_position_from_direction = {'h': 'left', 'j': 'bottom', 'k': 'top', 'l': 'right'}
+let s:pane_position_from_direction = {'h': 'left', 'n': 'bottom', 'r': 'top', 't': 'right'}
 
 function! s:TmuxOrTmateExecutable()
   return (match($TMUX, 'tmate') != -1 ? 'tmate' : 'tmux')
