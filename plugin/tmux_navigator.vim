@@ -25,17 +25,17 @@ endif
 
 if empty($TMUX)
   command! TmuxNavigateLeft call s:VimNavigate('h')
-  command! TmuxNavigateDown call s:VimNavigate('n')
-  command! TmuxNavigateUp call s:VimNavigate('r')
-  command! TmuxNavigateRight call s:VimNavigate('t')
+  command! TmuxNavigateDown call s:VimNavigate('j')
+  command! TmuxNavigateUp call s:VimNavigate('k')
+  command! TmuxNavigateRight call s:VimNavigate('l')
   command! TmuxNavigatePrevious call s:VimNavigate('p')
   finish
 endif
 
 command! TmuxNavigateLeft call s:TmuxAwareNavigate('h')
-command! TmuxNavigateDown call s:TmuxAwareNavigate('n')
-command! TmuxNavigateUp call s:TmuxAwareNavigate('r')
-command! TmuxNavigateRight call s:TmuxAwareNavigate('t')
+command! TmuxNavigateDown call s:TmuxAwareNavigate('j')
+command! TmuxNavigateUp call s:TmuxAwareNavigate('k')
+command! TmuxNavigateRight call s:TmuxAwareNavigate('l')
 command! TmuxNavigatePrevious call s:TmuxAwareNavigate('p')
 
 if !exists("g:tmux_navigator_save_on_switch")
